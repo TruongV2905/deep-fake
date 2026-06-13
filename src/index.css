@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --bg-base: #0c0f14;
+  --text-primary: #fcf8f6;
+  --text-secondary: #f8f7f7;
+  --text-muted: #ad9975;
+  --accent: #f59e0b;
+  --surface: rgba(255, 255, 255, 0.19);
+  --surface-border: rgba(255, 255, 255, 0.08);
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100vh;
+}
+surface-card body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
+
+/* Surfaces — matte, no plastic gloss */
+.surface {
+  background: rgba(12, 15, 20, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.surface-card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+.surface-elevated {
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+}
+
+.progress-fill {
+  background: var(--accent);
+}
+
+.vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(12, 15, 20, 0.55) 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
