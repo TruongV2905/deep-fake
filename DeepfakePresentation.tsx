@@ -81,7 +81,7 @@ export default function DeepfakePresentation() {
 
   useEffect(() => {
     if (!autoPlay || activeDetail) return;
-    const id = window.setInterval(nextSlide, 7000);
+    const id = window.setInterval(nextSlide, 3000);
     return () => window.clearInterval(id);
   }, [autoPlay, activeDetail, nextSlide]);
 
@@ -94,7 +94,10 @@ export default function DeepfakePresentation() {
   }, [filteredSample, currentSlide]);
 
   return (
-    <div ref={deckRef} className="relative min-h-screen bg-[var(--bg-base)] text-[var(--text-primary)]">
+    <div
+      ref={deckRef}
+      className="relative min-h-screen bg-[var(--bg-base)] text-[var(--text-primary)]"
+    >
       <CinematicBackground currentSlide={currentSlide} />
 
       <DeckHeader
@@ -111,7 +114,11 @@ export default function DeepfakePresentation() {
         ref={scrollAreaRef}
         className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center overflow-y-auto px-4 pb-24 pt-20 sm:px-6 sm:pb-28 sm:pt-24 lg:px-8"
       >
-        <section ref={slideRef} key={currentSlide} className="w-full py-4 md:py-6">
+        <section
+          ref={slideRef}
+          key={currentSlide}
+          className="w-full py-4 md:py-6"
+        >
           <SlideContent
             currentSlide={currentSlide}
             activeTheory={activeTheory}
