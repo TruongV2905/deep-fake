@@ -81,7 +81,7 @@ export default function DeepfakePresentation() {
 
   useEffect(() => {
     if (!autoPlay || activeDetail) return;
-    const id = window.setInterval(nextSlide, 3000);
+    const id = window.setInterval(nextSlide, 5000);
     return () => window.clearInterval(id);
   }, [autoPlay, activeDetail, nextSlide]);
 
